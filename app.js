@@ -1,11 +1,12 @@
 // app.js
 const Koa = require("koa");
+const cors = require("@koa/cors");
 const Router = require("koa-router");
 var bodyParser = require("koa-bodyparser");
 const validator = require("./validator");
 const app = new Koa();
 const router = new Router();
-
+app.use(cors());
 app.use(bodyParser());
 app.use(router.routes());
 app.use(router.allowedMethods());
